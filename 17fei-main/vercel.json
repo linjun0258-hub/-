@@ -1,13 +1,13 @@
 {
   "functions": {
-    "main.ts": {
+    "api/index.ts": {
       "runtime": "vercel-deno@1.1.3"
     }
   },
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/main.ts"
+      "destination": "/api/index.ts"
     }
   ]
 }
