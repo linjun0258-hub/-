@@ -1,7 +1,7 @@
 {
   "functions": {
     "api/index.ts": {
-      "runtime": "vercel-deno"
+      "runtime": "vercel-deno@3.0.4"
     }
   },
   "rewrites": [
