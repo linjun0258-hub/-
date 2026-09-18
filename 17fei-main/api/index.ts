@@ -1,4 +1,5 @@
 #!/usr/bin/env -S deno run -A
+//@vercel: -v 2.4.1
 import { createHandler } from "$fresh/server.ts";
 import manifest from "../fresh.gen.ts";
 import config from "../fresh.config.ts";
