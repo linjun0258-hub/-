@@ -14,6 +14,7 @@ export default function Home() {
         <div class="text-left leading-8 font-black mt-8">
           <div>1. 自由定制棋盘内容</div>
           <div> 2. 预设不同阶段互动内容 恋爱，情趣，好玩。满足各种口味快速开局。 </div>
+          <div>3. 获取源码定制，一键接入自有app小程序, 公众号</div>
         </div>
         <div class="text-center mt-8">
           <div class="font-black my-4">游戏列表</div>
@@ -24,7 +25,7 @@ export default function Home() {
         </div>
         <form method="POST" action="/verify" class="my-8 flex flex-col items-center">
           <div class="font-black my-4">访客验证</div>
-          <div class="cf-turnstile" data-sitekey="0x4AAAAAAAEE94JmZM0Xj7hwkd" />
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAAE94JmZM0XJ7hwkd" />
           <button type="submit" class="px-4 my-4 border rounded bg-pink-600 text-red-100 w-60">提交验证</button>
         </form>
         <div class="my-8">支持android，ios，平板，电脑等设备访问</div>
