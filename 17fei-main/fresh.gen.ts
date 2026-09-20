@@ -19,6 +19,7 @@ import * as $13 from "./routes/member.tsx";
 import * as $14 from "./routes/position.tsx";
 import * as $15 from "./routes/positions.tsx";
 import * as $16 from "./routes/unopen.tsx";
+import * as $17 from "./routes/verify.ts";
 import * as $$0 from "./islands/position-list.tsx";
 
 const manifest = {
@@ -40,6 +41,7 @@ const manifest = {
     "./routes/position.tsx": $14,
     "./routes/positions.tsx": $15,
     "./routes/unopen.tsx": $16,
+    "./routes/verify.ts": $17,
   },
   islands: {
     "./islands/position-list.tsx": $$0,
