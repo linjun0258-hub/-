@@ -22,7 +22,7 @@ export default function Home() {
           <a href="/position" class="block px-4 my-4 border rounded bg-pink-600 underline w-60"> 姿势卡牌 </a>
           <a href="/positions" class="block px-4 my-4 border rounded bg-pink-600 underline w-60"> 姿势大全 </a>
         </div>
-        <form method="POST" action="/api/verify" class="my-8 flex flex-col items-center">
+        <form method="POST" action="/verify" class="my-8 flex flex-col items-center">
           <div class="font-black my-4">访客验证</div>
           <div class="cf-turnstile" data-sitekey="0x4AAAAAAAEE94JmZM0Xj7hwkd" />
           <button type="submit" class="px-4 my-4 border rounded bg-pink-600 text-red-100 w-60">提交验证</button>
