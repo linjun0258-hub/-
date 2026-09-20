@@ -14,11 +14,10 @@ export const handler = {
     const result = await res.json();
 
     if (!result.success) {
-      return new Response("人机验证失败，请重试", { status: 403 });
+      return new Response("人机验证失败，请重试 [错误码: " + JSON.stringify(result["error-codes"]) + "]", { status: 403 });
     }
     return new Response("验证通过！欢迎游玩 🎮", {
       headers: { "content-type": "text/plain; charset=utf-8" },
     });
   },
 };
-
