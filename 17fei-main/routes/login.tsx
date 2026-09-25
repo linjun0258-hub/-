@@ -1,8 +1,8 @@
 // 登录页
 import { page } from "$fresh/runtime.ts";
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { verifyPassword } from "../lib/db.ts";
-import { verifyTurnstile, createSessionToken, sessionCookie } from "../lib/userAuth.ts";
+import { findUserByUsername } from "../lib/db.ts";
+import { verifyTurnstile, verifyPassword, createSessionToken, sessionCookie } from "../lib/userAuth.ts";
 
 interface LoginData {
   error?: string;
@@ -15,7 +15,7 @@ export const handler: Handlers<LoginData> = {
       turnstileSiteKey: Deno.env.get("TURNSTILE_SITE_KEY"),
     });
   },
-  async POST(req) {
+  async POST(req, ctx) {
     const form = await req.formData();
     const username = (form.get("username") as string | null)?.trim() ?? "";
     const password = (form.get("password") as string | null) ?? "";
@@ -30,12 +30,12 @@ export const handler: Handlers<LoginData> = {
       return ctx.render({ error: "请输入用户名和密码" }, { status: 400 });
     }
 
-    const hashed = await verifyPassword(username); // 返回 null 或 password_hash
-    if (!hashed) {
+    const user = await findUserByUsername(username);
+    if (!user) {
       return ctx.render({ error: "用户不存在" }, { status: 400 });
     }
 
-    const valid = await verifyPassword(password, hashed);
+    const valid = await verifyPassword(password, user.password);
     if (!valid) {
       return ctx.render({ error: "密码错误" }, { status: 400 });
     }
