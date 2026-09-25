@@ -1,17 +1,17 @@
 // 用户认证模块：bcrypt 密码哈希 + 签名 Cookie 会话
-import { hash, compare } from "https://esm.sh/bcryptjs@2.4.3";
+import bcrypt from "https://esm.sh/bcryptjs@2.4.3";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 const SESSION_SECRET = Deno.env.get("SESSION_SECRET") ?? "dev-secret-change-me";
 
 // ---------- 密码哈希（bcrypt，绝不存明文） ----------
 export async function hashPassword(plain: string): Promise<string> {
-  return await hash(plain);
+  return await bcrypt.hash(plain, 10);
 }
 
 export async function verifyPassword(plain: string, hashed: string): Promise<boolean> {
   try {
-    return await compare(plain, hashed);
+    return await bcrypt.compare(plain, hashed);
   } catch {
     return false;
   }
