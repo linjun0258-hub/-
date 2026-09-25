@@ -1,5 +1,5 @@
 // 用户认证模块：bcrypt 密码哈希 + 签名 Cookie 会话
-import { hash, compare } from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
+import { hash, compare } from "https://esm.sh/bcrypt@5.1.1";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 const SESSION_SECRET = Deno.env.get("SESSION_SECRET") ?? "dev-secret-change-me";
